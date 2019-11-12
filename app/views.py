@@ -26,11 +26,13 @@ from django.contrib import messages
 import datetime, locale
 from datetime import  timedelta
 from django.db import IntegrityError
+from django.utils.decorators import method_decorator
 
-
+@method_decorator(login_required(login_url='login'),name="dispatch")
 class ParticipantesListado(ListView):
     model = Participante
 
+@method_decorator(login_required(login_url='login'),name="dispatch")
 class ParticipanteCrear(SuccessMessageMixin, CreateView):
     model = Participante
     form = Participante
@@ -40,9 +42,11 @@ class ParticipanteCrear(SuccessMessageMixin, CreateView):
     def get_success_url(self):
         return reverse('p.leer')
 
+@method_decorator(login_required(login_url='login'),name="dispatch")
 class ParticipanteDetalle(DetailView):
     model = Participante
 
+@method_decorator(login_required(login_url='login'),name="dispatch")
 class ParticipanteActualizar(SuccessMessageMixin, UpdateView):
     model = Participante
     form = Participante
@@ -52,6 +56,7 @@ class ParticipanteActualizar(SuccessMessageMixin, UpdateView):
     def get_success_url(self):
         return reverse('p.leer')
 
+@method_decorator(login_required(login_url='login'),name="dispatch")
 class ParticipanteEliminar(SuccessMessageMixin, DeleteView):
     model = Participante
     form = Participante
@@ -62,9 +67,11 @@ class ParticipanteEliminar(SuccessMessageMixin, DeleteView):
         messages.success (self.request, (success_message))
         return reverse('p.leer')
 
+@method_decorator(login_required(login_url='login'),name="dispatch")
 class EventosListado(ListView):
     model = Evento
 
+@method_decorator(login_required(login_url='login'),name="dispatch")
 class EventoCrear(SuccessMessageMixin, CreateView):
     model = Evento
     form = Evento
@@ -74,9 +81,11 @@ class EventoCrear(SuccessMessageMixin, CreateView):
     def get_success_url(self):
         return reverse('e.leer')
 
+@method_decorator(login_required(login_url='login'),name="dispatch")
 class EventoDetalle(DetailView):
     model = Evento
 
+@method_decorator(login_required(login_url='login'),name="dispatch")
 class EventoActualizar(SuccessMessageMixin, UpdateView):
     model = Evento
     form = Evento
@@ -86,6 +95,7 @@ class EventoActualizar(SuccessMessageMixin, UpdateView):
     def get_success_url(self):
         return reverse('e.leer')
 
+@method_decorator(login_required(login_url='login'),name="dispatch")
 class EventoEliminar(SuccessMessageMixin, DeleteView):
     model = Evento
     form = Evento
@@ -96,9 +106,11 @@ class EventoEliminar(SuccessMessageMixin, DeleteView):
         messages.success (self.request, (success_message))
         return reverse('e.leer')
 
+@method_decorator(login_required(login_url='login'),name="dispatch")
 class BeneficiosListado(ListView):
     model = Beneficio
 
+@method_decorator(login_required(login_url='login'),name="dispatch")
 class BeneficioCrear(SuccessMessageMixin, CreateView):
     model = Beneficio
     form = Beneficio
@@ -108,6 +120,7 @@ class BeneficioCrear(SuccessMessageMixin, CreateView):
     def get_success_url(self):
         return reverse('b.leer')
 
+@method_decorator(login_required(login_url='login'),name="dispatch")
 class BeneficioEliminar(SuccessMessageMixin, DeleteView):
     model = Beneficio
     form = Beneficio
