@@ -23,7 +23,7 @@ from django.contrib.auth.views import LoginView
 
 from app.views import ParticipantesListado, ParticipanteDetalle, ParticipanteCrear, ParticipanteActualizar, ParticipanteEliminar
 from app.views import EventosListado, EventoDetalle, EventoCrear, EventoActualizar, EventoEliminar
-from app.views import BeneficiosListado, BeneficioDetalle
+from app.views import BeneficiosListado, BeneficioCrear, BeneficioEliminar
 
 from django.conf import settings
 
@@ -45,7 +45,7 @@ urlpatterns = [
     path('eventos/eliminar/<int:pk>', EventoEliminar.as_view(), name='e.eliminar'),
 
     path('beneficios/', BeneficiosListado.as_view(template_name = "beneficios/index.html"), name='b.leer'),
-    path('beneficios/detalle/<int:pk>', BeneficioDetalle.as_view(template_name = "beneficios/detalles.html"), name='b.detalles'),
-    #path('beneficios/crear', EventoCrear.as_view(template_name = "beneficios/crear.html"), name='e.crear'),
+    path('beneficios/crear', BeneficioCrear.as_view(template_name = "beneficios/crear.html"), name='b.crear'),
+    path('beneficios/eliminar/<int:pk>', BeneficioEliminar.as_view(), name='b.eliminar'),
 
 ]

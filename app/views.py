@@ -97,7 +97,23 @@ class EventoEliminar(SuccessMessageMixin, DeleteView):
         return reverse('e.leer')
 
 class BeneficiosListado(ListView):
-    model = Evento
+    model = Beneficio
 
-class BeneficioDetalle(DetailView):
-    model = Beneficio.objects.select_related('e_id')
+class BeneficioCrear(SuccessMessageMixin, CreateView):
+    model = Beneficio
+    form = Beneficio
+    fields = "__all__"
+    success_message = 'Beneficio creado correctamente'
+
+    def get_success_url(self):
+        return reverse('b.leer')
+
+class BeneficioEliminar(SuccessMessageMixin, DeleteView):
+    model = Beneficio
+    form = Beneficio
+    fields = "__all__"
+
+    def get_success_url(self):
+        success_message = 'Beneficio eliminado correctamente'
+        messages.success (self.request, (success_message))
+        return reverse('b.leer')

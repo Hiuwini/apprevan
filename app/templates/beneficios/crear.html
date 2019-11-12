@@ -2,9 +2,9 @@
 {% load static %}
 {% block content %}
 <div class="breadcrumb">
-    <h1>Eventos</h1>
+    <h1>Participaciones</h1>
     <ul>
-        <li><a href="/participantes">Eventos</a></li>
+        <li><a href="/participantes">Participaciones</a></li>
         <li>Principal</li>
     </ul>
 </div>
@@ -14,7 +14,7 @@
     <div class="card text-left">
 
         <div class="card-body">
-            <h4 class="card-title mb-3">Crear Evento</h4>
+            <h4 class="card-title mb-3">Crear Participacion</h4>
             <!-- Django Controller BEGIN -->
 
               <form method="post" enctype="multipart/form-data">
@@ -22,16 +22,12 @@
 
                 <!-- {{ form.as_p }} -->
                 <div class="col-md-6 form-group mb-3">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control form-control-rounded" id="nombre" name="nombre" placeholder="">
+                    <label for="nombre">Evento</label>
+                    {{ form.e_id }}
                 </div>
                 <div class="col-md-6 form-group mb-3">
-                    <label for="lugar">Lugar</label>
-                    <input type="text" class="form-control form-control-rounded" id="lugar" name="lugar" placeholder="">
-                </div>
-                <div class="col-md-6 form-group mb-3">
-                    <label for="fecha">Telefono</label>
-                    <input type="date" class="form-control form-control-rounded" id="fecha" name="fecha" placeholder="">
+                    <label for="lugar">Participante</label>
+                    {{ form.p_id }}
                 </div>
 
                 <button type="submit" class="btn btn-primary">Aceptar</button>
