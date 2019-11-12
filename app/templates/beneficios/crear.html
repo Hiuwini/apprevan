@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="breadcrumb">
+    <h1>Eventos</h1>
+    <ul>
+        <li><a href="/participantes">Eventos</a></li>
+        <li>Principal</li>
+    </ul>
+</div>
+<div class="separator-breadcrumb border-top"></div>
+
+<div class="col-md-12 mb-6">
+    <div class="card text-left">
+
+        <div class="card-body">
+            <h4 class="card-title mb-3">Crear Evento</h4>
+            <!-- Django Controller BEGIN -->
+
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <!-- {{ form.as_p }} -->
+                <div class="col-md-6 form-group mb-3">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control form-control-rounded" id="nombre" name="nombre" placeholder="">
+                </div>
+                <div class="col-md-6 form-group mb-3">
+                    <label for="lugar">Lugar</label>
+                    <input type="text" class="form-control form-control-rounded" id="lugar" name="lugar" placeholder="">
+                </div>
+                <div class="col-md-6 form-group mb-3">
+                    <label for="fecha">Telefono</label>
+                    <input type="date" class="form-control form-control-rounded" id="fecha" name="fecha" placeholder="">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Aceptar</button>
+                <a href="../" type="submit" class="btn btn-primary">Volver</a>
+
+              </form>
+
+            <!-- Django Controller END -->
+            </div>
+          </div>
+        </div>
+
+
+{% endblock %}

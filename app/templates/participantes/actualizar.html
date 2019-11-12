@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="breadcrumb">
+    <h1>Participantes</h1>
+    <ul>
+        <li><a href="/participantes">Participantes</a></li>
+        <li>Principal</li>
+    </ul>
+</div>
+<div class="separator-breadcrumb border-top"></div>
+
+<div class="col-md-12 mb-6">
+    <div class="card text-left">
+
+        <div class="card-body">
+            <h4 class="card-title mb-3">Actualizar Participante</h4>
+            <!-- Django Controller BEGIN -->
+
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+
+              <!-- {{ form.as_p }} -->
+              <div class="col-md-6 form-group mb-3">
+                  <label for="nombre">Nombre</label>
+                  {{ form.nombre }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+              </div>
+
+              <div class="col-md-6 form-group mb-3">
+                  <label for="nombre">Apellido</label>
+                  {{ form.apellido }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+              </div>
+
+              <div class="col-md-6 form-group mb-3">
+                  <label for="nombre">Telefono</label>
+                  {{ form.telefono }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+              </div>
+
+              <div class="col-md-6 form-group mb-3">
+                  <label for="nombre">Email</label>
+                  {{ form.email }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+              </div>
+
+
+              <button type="submit" class="btn btn-primary">Aceptar</button>
+              <a href="../" type="submit" class="btn btn-primary">Volver</a>
+
+            </form>
+
+            <!-- Django Controller END -->
+            </div>
+          </div>
+        </div>
+
+
+{% endblock %}

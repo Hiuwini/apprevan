@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="breadcrumb">
+    <h1>Eventos</h1>
+    <ul>
+        <li><a href="/participantes">Eventos</a></li>
+        <li>Principal</li>
+    </ul>
+</div>
+<div class="separator-breadcrumb border-top"></div>
+
+<div class="col-md-12 mb-6">
+    <div class="card text-left">
+
+        <div class="card-body">
+            <h4 class="card-title mb-3">Detalles de Evento</h4>
+            <!-- Django Controller BEGIN -->
+            <p><span class="txt_negrita">Nombre:</span> <br> {{object.nombre}}</p>
+            <p><span class="txt_negrita">Lugar:</span> <br> {{object.lugar}}</p>
+            <p><span class="txt_negrita">Fecha:</span> <br> {{object.fecha}}</p>
+
+            <a href="../" type="submit" class="btn btn-primary">Volver</a>
+            <!-- Django Controller END -->
+            </div>
+          </div>
+        </div>
+
+
+{% endblock %}
